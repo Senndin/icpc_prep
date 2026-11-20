@@ -1,0 +1,347 @@
+[
+  {
+    "title": "Watermelon",
+    "cf_contest_id": 4,
+    "cf_index": "A",
+    "rating": 800,
+    "tags": [
+      "brute force",
+      "math"
+    ],
+    "statement": "Чи можна поділити кавун вагою w на дві частини з парною вагою."
+  },
+  {
+    "title": "Way Too Long Words",
+    "cf_contest_id": 71,
+    "cf_index": "A",
+    "rating": 800,
+    "tags": [
+      "strings"
+    ],
+    "statement": "Скоротити довгі слова до вигляду «перша літера + довжина + остання літера»."
+  },
+  {
+    "title": "Next Round",
+    "cf_contest_id": 158,
+    "cf_index": "A",
+    "rating": 800,
+    "tags": [
+      "implementation"
+    ],
+    "statement": "Порахувати учасників, що проходять у наступний раунд."
+  },
+  {
+    "title": "Team",
+    "cf_contest_id": 231,
+    "cf_index": "A",
+    "rating": 800,
+    "tags": [
+      "brute force",
+      "greedy"
+    ],
+    "statement": "Скільки задач команда з трьох друзів візьметься розв'язувати."
+  },
+  {
+    "title": "Bit++",
+    "cf_contest_id": 282,
+    "cf_index": "A",
+    "rating": 800,
+    "tags": [
+      "implementation"
+    ],
+    "statement": "Виконати програму мовою Bit++ над змінною x."
+  },
+  {
+    "title": "Domino piling",
+    "cf_contest_id": 50,
+    "cf_index": "A",
+    "rating": 800,
+    "tags": [
+      "greedy",
+      "math"
+    ],
+    "statement": "Максимальна кількість доміно на дошці M×N."
+  },
+  {
+    "title": "Beautiful Matrix",
+    "cf_contest_id": 263,
+    "cf_index": "A",
+    "rating": 800,
+    "tags": [
+      "implementation"
+    ],
+    "statement": "Мінімум ходів, щоб перемістити одиницю в центр матриці."
+  },
+  {
+    "title": "Petya and Strings",
+    "cf_contest_id": 112,
+    "cf_index": "A",
+    "rating": 800,
+    "tags": [
+      "implementation",
+      "strings"
+    ],
+    "statement": "Лексикографічне порівняння рядків без урахування регістру."
+  },
+  {
+    "title": "Helpful Maths",
+    "cf_contest_id": 339,
+    "cf_index": "A",
+    "rating": 800,
+    "tags": [
+      "greedy",
+      "sortings",
+      "strings"
+    ],
+    "statement": "Переставити доданки суми в неспадному порядку."
+  },
+  {
+    "title": "Stones on the Table",
+    "cf_contest_id": 266,
+    "cf_index": "A",
+    "rating": 800,
+    "tags": [
+      "implementation"
+    ],
+    "statement": "Скільки каменів прибрати, щоб сусідні мали різні кольори."
+  },
+  {
+    "title": "Soldier and Bananas",
+    "cf_contest_id": 546,
+    "cf_index": "A",
+    "rating": 800,
+    "tags": [
+      "brute force",
+      "math"
+    ],
+    "statement": "Скільки грошей позичити солдату для купівлі бананів."
+  },
+  {
+    "title": "Bear and Big Brother",
+    "cf_contest_id": 791,
+    "cf_index": "A",
+    "rating": 800,
+    "tags": [
+      "implementation"
+    ],
+    "statement": "Через скільки років Лімак стане важчим за брата."
+  },
+  {
+    "title": "Elephant",
+    "cf_contest_id": 617,
+    "cf_index": "A",
+    "rating": 800,
+    "tags": [
+      "math"
+    ],
+    "statement": "Мінімальна кількість кроків слона до будинку друга."
+  },
+  {
+    "title": "Theatre Square",
+    "cf_contest_id": 1,
+    "cf_index": "A",
+    "rating": 1000,
+    "tags": [
+      "math"
+    ],
+    "statement": "Мінімальна кількість гранітних плит для мощення площі."
+  },
+  {
+    "title": "Young Physicist",
+    "cf_contest_id": 69,
+    "cf_index": "A",
+    "rating": 1000,
+    "tags": [
+      "implementation",
+      "math"
+    ],
+    "statement": "Перевірити, чи перебуває тіло в рівновазі."
+  },
+  {
+    "title": "String Task",
+    "cf_contest_id": 118,
+    "cf_index": "A",
+    "rating": 1000,
+    "tags": [
+      "implementation",
+      "strings"
+    ],
+    "statement": "Обробити рядок: видалити голосні та вставити крапки."
+  },
+  {
+    "title": "Football",
+    "cf_contest_id": 96,
+    "cf_index": "A",
+    "rating": 900,
+    "tags": [
+      "implementation",
+      "strings"
+    ],
+    "statement": "Чи є в рядку сім однакових символів поспіль."
+  },
+  {
+    "title": "Taxi",
+    "cf_contest_id": 158,
+    "cf_index": "B",
+    "rating": 1100,
+    "tags": [
+      "greedy",
+      "implementation"
+    ],
+    "statement": "Мінімальна кількість таксі для груп дітей."
+  },
+  {
+    "title": "Kuriyama Mirai's Stones",
+    "cf_contest_id": 433,
+    "cf_index": "B",
+    "rating": 1200,
+    "tags": [
+      "dp",
+      "sortings"
+    ],
+    "statement": "Відповідати на запити сум на відрізках — префіксні суми."
+  },
+  {
+    "title": "BerSU Ball",
+    "cf_contest_id": 489,
+    "cf_index": "B",
+    "rating": 1200,
+    "tags": [
+      "greedy",
+      "sortings",
+      "two pointers"
+    ],
+    "statement": "Максимальна кількість пар для танцю."
+  },
+  {
+    "title": "Registration system",
+    "cf_contest_id": 4,
+    "cf_index": "C",
+    "rating": 1300,
+    "tags": [
+      "data structures",
+      "hashing"
+    ],
+    "statement": "Видати унікальні логіни з використанням словника."
+  },
+  {
+    "title": "T-primes",
+    "cf_contest_id": 230,
+    "cf_index": "B",
+    "rating": 1300,
+    "tags": [
+      "math",
+      "number theory",
+      "binary search"
+    ],
+    "statement": "Перевірити, чи має число рівно три дільники."
+  },
+  {
+    "title": "Books",
+    "cf_contest_id": 279,
+    "cf_index": "B",
+    "rating": 1400,
+    "tags": [
+      "binary search",
+      "two pointers"
+    ],
+    "statement": "Максимальна кількість книжок за вільний час — два вказівники."
+  },
+  {
+    "title": "Given Length and Sum of Digits...",
+    "cf_contest_id": 489,
+    "cf_index": "C",
+    "rating": 1400,
+    "tags": [
+      "dp",
+      "greedy"
+    ],
+    "statement": "Найменше і найбільше число із заданою довжиною та сумою цифр."
+  },
+  {
+    "title": "Boredom",
+    "cf_contest_id": 455,
+    "cf_index": "A",
+    "rating": 1500,
+    "tags": [
+      "dp"
+    ],
+    "statement": "Максимум балів у грі з видаленням сусідніх чисел — динамічне програмування."
+  },
+  {
+    "title": "Kefa and Park",
+    "cf_contest_id": 580,
+    "cf_index": "C",
+    "rating": 1500,
+    "tags": [
+      "dfs and similar",
+      "graphs",
+      "trees"
+    ],
+    "statement": "Кількість ресторанів, до яких можна дійти, оминаючи котів."
+  },
+  {
+    "title": "Number of Ways",
+    "cf_contest_id": 466,
+    "cf_index": "C",
+    "rating": 1700,
+    "tags": [
+      "binary search",
+      "brute force",
+      "two pointers"
+    ],
+    "statement": "Кількість способів поділити масив на три частини з рівною сумою."
+  },
+  {
+    "title": "Dijkstra?",
+    "cf_contest_id": 20,
+    "cf_index": "C",
+    "rating": 1900,
+    "tags": [
+      "graphs",
+      "shortest paths"
+    ],
+    "statement": "Знайти найкоротший шлях у зваженому графі — алгоритм Дейкстри."
+  },
+  {
+    "title": "Flowers",
+    "cf_contest_id": 474,
+    "cf_index": "D",
+    "rating": 1700,
+    "tags": [
+      "dp"
+    ],
+    "statement": "Кількість способів з'їсти квіти з обмеженням на білі — ДП."
+  },
+  {
+    "title": "Cut Ribbon",
+    "cf_contest_id": 189,
+    "cf_index": "A",
+    "rating": 1300,
+    "tags": [
+      "brute force",
+      "dp"
+    ],
+    "statement": "Максимальна кількість шматків стрічки довжин a, b, c."
+  },
+  {
+    "title": "Fox And Snake",
+    "cf_contest_id": 510,
+    "cf_index": "A",
+    "rating": 800,
+    "tags": [
+      "implementation"
+    ],
+    "statement": "Намалювати змійку в таблиці n×m."
+  },
+  {
+    "title": "Xenia and Ringroad",
+    "cf_contest_id": 339,
+    "cf_index": "B",
+    "rating": 1000,
+    "tags": [
+      "implementation"
+    ],
+    "statement": "Сумарний час обходу кільцевої дороги."
+  }
+]
