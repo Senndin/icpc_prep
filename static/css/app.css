@@ -1,0 +1,45 @@
+/* Основні кольори інтерфейсу */
+:root {
+  --brand: #1f3a68;
+  --brand-dark: #142849;
+  --accent: #f2b705;
+  --surface: #f4f6fb;
+  --ok: #198754;
+  --bad: #dc3545;
+}
+body { background: var(--surface); min-height: 100vh; display: flex; flex-direction: column; }
+main { flex: 1; }
+.navbar-brand { font-weight: 700; letter-spacing: .3px; }
+.navbar-brand .logo { background: var(--accent); color: var(--brand-dark); border-radius: 8px; padding: 2px 7px; margin-right: 6px; }
+.navbar { background: linear-gradient(90deg, var(--brand-dark), var(--brand)); }
+.navbar .nav-link.active { color: #fff !important; border-bottom: 2px solid var(--accent); }
+.page-header { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; justify-content: space-between; margin: 1.5rem 0 1rem; }
+.page-header h1 { font-size: 1.6rem; margin: 0; font-weight: 700; color: var(--brand-dark); }
+.card { border: 0; border-radius: 14px; box-shadow: 0 2px 10px rgba(20, 40, 73, .07); }
+.card-header { background: #fff; border-bottom: 1px solid #eef0f5; font-weight: 600; border-radius: 14px 14px 0 0 !important; }
+.stat-card .value { font-size: 2rem; font-weight: 700; color: var(--brand); line-height: 1.1; }
+.stat-card .caption { color: #6c757d; font-size: .9rem; }
+.stat-card .icon { font-size: 1.8rem; color: var(--accent); }
+.table thead th { background: #eef2f9; color: var(--brand-dark); font-weight: 600; white-space: nowrap; }
+.table-hover tbody tr:hover { background: #f7f9fd; }
+.rating-badge { min-width: 52px; display: inline-block; text-align: center; }
+.r-easy { background: #d1f0dc; color: #136c38; }
+.r-mid { background: #fff1c2; color: #7a5a00; }
+.r-hard { background: #fbd5d9; color: #9b1c2b; }
+.tag { background: #e7ecf7; color: var(--brand); font-weight: 500; }
+.solved-row > td { --bs-table-bg: #f1fbf4; }
+.standings td, .standings th { text-align: center; vertical-align: middle; }
+.standings td.team { text-align: left; }
+.table td.cell-ok { --bs-table-bg: #d4f4dd; --bs-table-color: #0f5f2c; font-weight: 700; }
+.table td.cell-first { --bs-table-bg: #2fb45a; --bs-table-color: #fff; font-weight: 700; }
+.table td.cell-bad { --bs-table-bg: #fde1e4; --bs-table-color: #a01d2c; font-weight: 700; }
+.badge.cell-first { background: #2fb45a; color: #fff; }
+.cell-time { display: block; font-size: .72rem; font-weight: 400; }
+.toolbar .btn { border-radius: 10px; }
+.avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--brand); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 600; font-size: .85rem; }
+.progress { height: 8px; border-radius: 6px; }
+.auth-wrap { max-width: 440px; margin: 4rem auto; }
+.auth-wrap .card { padding: 1.5rem; }
+.empty { color: #8a93a6; text-align: center; padding: 2rem 1rem; }
+footer { color: #8a93a6; font-size: .85rem; }
+.kbd-hint { font-size: .7rem; opacity: .7; }

@@ -1,0 +1,16 @@
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered">
+    <form method="post" class="modal-content">
+      {% csrf_token %}
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="bi bi-exclamation-triangle text-danger"></i> Підтвердження видалення</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрити"></button>
+      </div>
+      <div class="modal-body">Ви дійсно бажаєте видалити «<strong class="object-name"></strong>»? Цю дію неможливо скасувати.</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Скасувати</button>
+        <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i> Видалити</button>
+      </div>
+    </form>
+  </div>
+</div>
