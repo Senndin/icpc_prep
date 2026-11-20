@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Тренування{% endblock %}
+{% block content %}
+<div class="page-header"><h1><i class="bi bi-flag"></i> Тренування</h1>
+  {% if user.can_manage %}<a class="btn btn-primary" href="{% url 'training:training_create' %}" data-bs-toggle="tooltip" title="Створити тренування у форматі ICPC"><i class="bi bi-plus-lg"></i> Нове тренування</a>{% endif %}</div>
+<ul class="nav nav-pills mb-3">
+  <li class="nav-item"><a class="nav-link {% if not status %}active{% endif %}" href="?">Усі</a></li>
+  <li class="nav-item"><a class="nav-link {% if status == 'running' %}active{% endif %}" href="?status=running">Тривають</a></li>
+  <li class="nav-item"><a class="nav-link {% if status == 'upcoming' %}active{% endif %}" href="?status=upcoming">Майбутні</a></li>
+  <li class="nav-item"><a class="nav-link {% if status == 'finished' %}active{% endif %}" href="?status=finished">Завершені</a></li>
+</ul>
+<div class="card"><div class="table-responsive"><table class="table table-hover mb-0 align-middle">
+  <thead><tr><th>Назва</th><th>Початок</th><th class="text-center">Тривалість</th><th class="text-center">Задач</th><th>Команди</th><th class="text-center">Стан</th></tr></thead>
+  <tbody>{% for tr in object_list %}<tr>
+    <td><a class="fw-semibold text-decoration-none" href="{{ tr.get_absolute_url }}">{{ tr.title }}</a></td>
+    <td>{{ tr.start_at|date:"d.m.Y H:i" }}</td><td class="text-center">{{ tr.duration_minutes }} хв</td>
+    <td class="text-center">{{ tr.problems.count }}</td><td>{% for t in tr.teams.all %}<span class="badge tag me-1">{{ t }}</span>{% endfor %}</td>
+    <td class="text-center">{% if tr.status == 'running' %}<span class="badge bg-success">триває</span>{% elif tr.status == 'upcoming' %}<span class="badge bg-info text-dark">майбутнє</span>{% else %}<span class="badge bg-secondary">завершено</span>{% endif %}</td></tr>
+  {% empty %}<tr><td colspan="6" class="empty">Тренувань не знайдено</td></tr>{% endfor %}</tbody></table></div></div>
+{% include "partials/pagination.html" %}
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Імпорт задач{% endblock %}
+{% block content %}
+<div class="page-header"><h1><i class="bi bi-upload"></i> Імпорт задач з файлу</h1></div>
+<div class="row g-4">
+  <div class="col-lg-6"><div class="card"><div class="card-body">
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+      {% include "partials/form_fields.html" %}
+      <button class="btn btn-primary"><i class="bi bi-upload"></i> Імпортувати</button>
+      <a class="btn btn-outline-secondary" href="{% url 'training:problem_list' %}">Скасувати</a>
+    </form>
+  </div></div></div>
+  <div class="col-lg-6"><div class="card"><div class="card-header">Формат файлу</div><div class="card-body small">
+    <p><strong>JSON</strong> — масив об'єктів:</p>
+<pre class="bg-light p-2 rounded">[{"title": "Watermelon", "cf_contest_id": 4,
+  "cf_index": "A", "rating": 800,
+  "tags": ["math", "brute force"]}]</pre>
+    <p><strong>CSV</strong> — заголовок і рядки, теги через «;»:</p>
+<pre class="bg-light p-2 rounded">title,cf_contest_id,cf_index,rating,tags
+Watermelon,4,A,800,math;brute force</pre>
+    <p class="mb-0 text-muted">Задачі Codeforces з однаковим кодом оновлюються, а не дублюються.</p>
+  </div></div></div>
+</div>
+{% endblock %}

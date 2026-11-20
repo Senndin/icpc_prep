@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load training_tags %}
+{% block title %}{{ object.title }}{% endblock %}
+{% block content %}
+<div class="page-header"><h1>{% if object.code %}<span class="text-muted">{{ object.code }}</span> {% endif %}{{ object.title }}</h1>
+  <div class="toolbar">
+    {% if object.get_external_url %}<a class="btn btn-outline-primary" target="_blank" href="{{ object.get_external_url }}"><i class="bi bi-box-arrow-up-right"></i> Відкрити умову</a>{% endif %}
+    {% if user.can_manage %}<a class="btn btn-outline-primary" href="{% url 'training:problem_update' object.pk %}"><i class="bi bi-pencil"></i> Редагувати</a>
+    <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-url="{% url 'training:problem_delete' object.pk %}" data-name="{{ object.title }}"><i class="bi bi-trash"></i></button>{% endif %}
+  </div>
+</div>
+<div class="row g-4">
+  <div class="col-lg-8">
+    <div class="card mb-4"><div class="card-body">
+      <div class="mb-3"><span class="badge rating-badge {{ object.rating|rating_class }} me-2">{{ object.rating|default:"—" }}</span>
+        <span class="text-muted">рівень: {{ object.difficulty_level }} · джерело: {{ object.get_source_display }}</span></div>
+      <div class="mb-3">{% for t in object.tags.all %}<span class="badge tag me-1">{{ t }}</span>{% empty %}<span class="text-muted">Без тегів</span>{% endfor %}</div>
+      <p class="mb-0">{{ object.statement|default:"Короткий опис відсутній. Умова доступна за посиланням."|linebreaksbr }}</p>
+    </div></div>
+    <div class="card"><div class="card-header"><i class="bi bi-clock-history"></i> Мої спроби</div>
+      <ul class="list-group list-group-flush">{% for a in my_attempts %}
+        <li class="list-group-item d-flex justify-content-between"><span>{% if a.is_accepted %}<span class="badge bg-success">Зараховано</span>{% else %}<span class="badge bg-danger">Невдала спроба</span>{% endif %} <span class="text-muted small ms-2">{{ a.get_source_display }}</span></span><span class="text-muted small">{{ a.submitted_at|date:"d.m.Y H:i" }}</span></li>
+      {% empty %}<li class="list-group-item empty">Спроб ще немає</li>{% endfor %}</ul></div>
+  </div>
+  <div class="col-lg-4">
+    {% if user.is_student %}
+    <div class="card mb-4"><div class="card-header"><i class="bi bi-send-check"></i> Результат</div><div class="card-body">
+      {% if is_solved %}
+      <div class="alert alert-success py-2 mb-0"><i class="bi bi-trophy"></i> Задачу розв'язано. Нові спроби не потрібні.</div>
+      {% else %}
+      <p class="small text-muted">Позначте результат вашої посилки, якщо не користуєтеся синхронізацією з Codeforces.</p>
+      <form method="post" action="{% url 'training:attempt_create' object.pk %}" class="d-grid gap-2">{% csrf_token %}
+        <button class="btn btn-success" name="verdict" value="ok"><i class="bi bi-check-lg"></i> Зараховано</button>
+        <button class="btn btn-outline-danger" name="verdict" value="wrong"><i class="bi bi-x-lg"></i> Невдала спроба</button>
+      </form>
+      {% endif %}
+    </div></div>{% endif %}
+    <div class="card"><div class="card-body">
+      <div class="d-flex justify-content-between"><span class="text-muted">Розв'язали студентів</span><strong>{{ solved_by }}</strong></div>
+      <hr><div class="text-muted small mb-1">Входить у тренування:</div>
+      {% for tr in trainings %}<div><a href="{{ tr.get_absolute_url }}">{{ tr.title }}</a></div>{% empty %}<div class="small">—</div>{% endfor %}
+    </div></div>
+  </div>
+</div>
+{% endblock %}

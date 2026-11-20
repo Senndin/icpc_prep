@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load training_tags %}
+{% block title %}{{ object.title }}{% endblock %}
+{% block content %}
+<div class="page-header"><div><h1><i class="bi bi-flag"></i> {{ object.title }}</h1>
+  <div class="text-muted">{{ object.start_at|date:"d.m.Y H:i" }} – {{ object.end_at|date:"d.m.Y H:i" }} · {{ object.duration_minutes }} хв ·
+  {% if object.status == 'running' %}<span class="badge bg-success">триває</span>{% elif object.status == 'upcoming' %}<span class="badge bg-info text-dark">майбутнє</span>{% else %}<span class="badge bg-secondary">завершено</span>{% endif %}</div></div>
+  {% if can_edit %}<div class="toolbar">
+    <a class="btn btn-outline-primary" href="{% url 'training:training_update' object.pk %}"><i class="bi bi-pencil"></i> Редагувати</a>
+    <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-url="{% url 'training:training_delete' object.pk %}" data-name="{{ object.title }}"><i class="bi bi-trash"></i> Видалити</button>
+  </div>{% endif %}</div>
+{% if object.description %}<p>{{ object.description }}</p>{% endif %}
+<div class="card mb-4"><div class="card-header"><i class="bi bi-list-ol"></i> Задачі тренування</div><div class="table-responsive"><table class="table table-hover mb-0 align-middle">
+  <thead><tr><th style="width:60px">#</th><th>Задача</th><th>Теги</th><th class="text-center">Складність</th><th></th></tr></thead>
+  <tbody>{% for letter, p in lettered %}<tr class="{% if p.pk in solved_ids %}solved-row{% endif %}">
+    <td class="fw-bold">{{ letter }}</td><td><a class="text-decoration-none" href="{{ p.get_absolute_url }}">{{ p.title }}</a></td>
+    <td>{% for t in p.tags.all|slice:":3" %}<span class="badge tag me-1">{{ t }}</span>{% endfor %}</td>
+    <td class="text-center"><span class="badge rating-badge {{ p.rating|rating_class }}">{{ p.rating|default:"—" }}</span></td>
+    <td class="text-end">{% if p.pk in solved_ids %}<i class="bi bi-check-circle-fill text-success"></i>{% endif %}</td></tr>{% endfor %}</tbody></table></div></div>
+<div class="card"><div class="card-header d-flex justify-content-between"><span><i class="bi bi-trophy"></i> Таблиця результатів (правила ICPC)</span>
+  <span class="small text-muted fw-normal">+ розв'язано · −N невдалих спроб · штраф = хвилини + 20 × невдалі спроби</span></div>
+  <div class="table-responsive"><table class="table table-bordered mb-0 standings">
+  <thead><tr><th>Місце</th><th class="text-start">Команда</th>{% for letter, p in lettered %}<th title="{{ p.title }}">{{ letter }}</th>{% endfor %}<th>Розв'язано</th><th>Штраф</th></tr></thead>
+  <tbody>{% for row in standings %}<tr>
+    <td class="fw-bold">{{ row.rank }}</td><td class="team"><a href="{{ row.team.get_absolute_url }}">{{ row.team.name }}</a></td>
+    {% for cell in row.cells %}<td class="{% if cell.first_to_solve %}cell-first{% elif cell.solved %}cell-ok{% elif cell.wrong_attempts %}cell-bad{% endif %}">{{ cell.label }}{% if cell.solved %}<span class="cell-time">{{ cell.solve_minute }} хв</span>{% endif %}</td>{% endfor %}
+    <td class="fw-bold">{{ row.solved }}</td><td>{{ row.penalty }}</td></tr>
+  {% empty %}<tr><td colspan="99" class="empty">До тренування не додано жодної команди</td></tr>{% endfor %}</tbody></table></div>
+  <div class="card-footer bg-white small text-muted"><span class="badge cell-first">+</span> — перша команда, що розв'язала задачу</div></div>
+{% endblock %}

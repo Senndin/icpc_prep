@@ -1,0 +1,6 @@
+<div class="card"><div class="card-header"><i class="bi bi-calendar-event"></i> Найближчі тренування</div>
+  <div class="list-group list-group-flush">{% for tr in upcoming_trainings %}
+    <a class="list-group-item list-group-item-action" href="{{ tr.get_absolute_url }}"><div class="d-flex justify-content-between align-items-start gap-2"><strong>{{ tr.title }}</strong>
+      {% if tr.status == 'running' %}<span class="badge bg-success">триває</span>{% else %}<span class="badge bg-info text-dark">незабаром</span>{% endif %}</div>
+      <small class="text-muted">{{ tr.start_at|date:"d.m.Y H:i" }} · {{ tr.duration_minutes }} хв</small></a>
+  {% empty %}<div class="empty">Запланованих тренувань немає</div>{% endfor %}</div></div>

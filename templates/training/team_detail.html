@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load training_tags %}
+{% block title %}{{ object.name }}{% endblock %}
+{% block content %}
+<div class="page-header"><div><h1><i class="bi bi-people"></i> {{ object.name }}</h1><div class="text-muted">{{ object.university }} · тренер: {{ object.coach|default:"не призначено" }}</div></div>
+  {% if can_edit %}<div class="toolbar">
+    <a class="btn btn-outline-primary" href="{% url 'training:team_update' object.pk %}"><i class="bi bi-pencil"></i> Редагувати</a>
+    <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-url="{% url 'training:team_delete' object.pk %}" data-name="{{ object.name }}"><i class="bi bi-trash"></i> Видалити</button>
+  </div>{% endif %}</div>
+<div class="card mb-4"><div class="card-header"><i class="bi bi-bar-chart"></i> Статистика учасників</div><div class="table-responsive"><table class="table mb-0 align-middle">
+  <thead><tr><th>Учасник</th><th>Codeforces</th><th class="text-center">Розв'язано</th><th class="text-center">Спроб</th><th class="text-center">Точність</th><th class="text-center">Бали</th><th>Сильні теми</th></tr></thead>
+  <tbody>{% for member, s in member_stats %}<tr>
+    <td><span class="avatar me-2">{{ member|initials }}</span>{{ member }}</td><td>{{ member.codeforces_handle|default:"—" }}</td>
+    <td class="text-center fw-semibold">{{ s.solved_count }}</td><td class="text-center">{{ s.attempts_count }}</td>
+    <td class="text-center">{{ s.accuracy }}%</td><td class="text-center">{{ s.score }}</td>
+    <td>{% for tag, n in s.by_tag|slice:":3" %}<span class="badge tag me-1">{{ tag }} · {{ n }}</span>{% endfor %}</td></tr>
+  {% empty %}<tr><td colspan="7" class="empty">У команді ще немає учасників</td></tr>{% endfor %}</tbody></table></div></div>
+<div class="card"><div class="card-header"><i class="bi bi-flag"></i> Тренування команди</div>
+  <div class="list-group list-group-flush">{% for tr in trainings %}<a class="list-group-item list-group-item-action d-flex justify-content-between" href="{{ tr.get_absolute_url }}"><span>{{ tr.title }}</span><span class="text-muted small">{{ tr.start_at|date:"d.m.Y" }}</span></a>
+  {% empty %}<div class="empty">Команда ще не брала участі в тренуваннях</div>{% endfor %}</div></div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Про програму{% endblock %}
+{% block content %}
+<div class="page-header"><h1><i class="bi bi-info-circle"></i> Про програму</h1></div>
+<div class="card" style="max-width:760px"><div class="card-body p-4"><div class="row g-4 align-items-center">
+  <div class="col-md-4 text-center"><img src="{% static 'img/developer.png' %}" alt="Фото розробника" class="img-fluid rounded-circle shadow" style="max-width:180px"></div>
+  <div class="col-md-8">
+    <h2 class="h4 fw-bold">ICPC Prep <span class="badge bg-warning text-dark">версія 1.0</span></h2>
+    <p>Програмна система для автоматизації роботи з даними про підготовку студентів до олімпіад з програмування формату ICPC.</p>
+    <table class="table table-sm mb-0">
+      <tr><th>Розробник</th><td>Денис Чернокур</td></tr>
+      <tr><th>Група</th><td>6.04.122.010.24.2, спеціальність 122 «Комп'ютерні науки»</td></tr>
+      <tr><th>Заклад</th><td>ХНЕУ ім. С. Кузнеця, кафедра інформаційних систем</td></tr>
+      <tr><th>Керівник</th><td>Олег Фролов</td></tr>
+      <tr><th>Технології</th><td>Python 3, Django 5, SQLite, Bootstrap 5, Codeforces API</td></tr>
+      <tr><th>Рік</th><td>2026</td></tr>
+    </table>
+  </div></div></div></div>
+{% endblock %}
