@@ -13,7 +13,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # на сервері ключ і режим налагодження задаються змінними середовища.
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "django-insecure-icpc-prep-local-key-change-me")
 DEBUG = os.environ.get("DJANGO_DEBUG", "1") == "1"
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"] + [
+    host.strip()
+    for host in os.environ.get("DJANGO_ALLOWED_HOSTS", "").split(",")
+    if host.strip()
+]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -77,6 +81,8 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
+# Каталог для collectstatic (потрібен на хостингу, де статику віддає веб-сервер)
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
